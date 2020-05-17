@@ -5,11 +5,13 @@ from os.path import isfile
 
 
 class FileManager:
-    def __init__(self, search_entry, results_listbox, source_buffer):
+    def __init__(self, search_entry, results_listbox,
+                 source_buffer, source_view):
         self.currently_open_file = None
         self.search_entry = search_entry
         self.results_listbox = results_listbox
         self.source_buffer = source_buffer
+        self.source_view = source_view
         self.confman = ConfManager()
         self.results_listbox.set_sort_func(
             self.results_sort_func, None, False
@@ -23,6 +25,8 @@ class FileManager:
         )
 
         self.search_entry.connect('changed', self.on_search_changed)
+        # activate called on Enter pressed
+        self.search_entry.connect('activate', self.on_search_entry_activate)
         self.populate_listbox()
 
     def results_sort_func(self, row1, row2, data, notify_destroy):
@@ -51,9 +55,19 @@ class FileManager:
     def on_search_changed(self, *args):
         self.results_listbox.invalidate_filter()
 
+    def on_search_entry_activate(self, *args):
+        file_path = '{0}/{1}'.format(
+            self.confman.conf['notes_dir'],
+            self.search_entry.get_text()
+        )
+        self.open_file(file_path)
+
     def on_results_listbox_row_activated(self, listbox, row):
         if not row:
             return
+        self.open_file(row.file_path)
+
+    def open_file(self, file_path):
         if (
                 self.currently_open_file is not None and
                 isfile(self.currently_open_file)
@@ -66,6 +80,12 @@ class FileManager:
                         True
                     )
                 )
-        self.currently_open_file = row.file_path
-        with open(row.file_path, 'r') as fd:
-            self.source_buffer.set_text(fd.read())
+        self.currently_open_file = file_path
+        if isfile(file_path):
+            with open(file_path, 'r') as fd:
+                self.source_buffer.set_text(fd.read())
+        else:
+            with open(file_path, 'w') as fd:
+                fd.write('')
+            self.populate_listbox()
+        self.source_view.grab_focus()

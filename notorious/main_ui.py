@@ -49,12 +49,12 @@ class NotoriousUI(Gtk.Bin):
         # self.source_view.set_smart_home_end(GtkSource.SmartHomeEndType.ALWAYS)
         self.source_view.set_highlight_current_line(True)
         self.source_view.set_wrap_mode(Gtk.WrapMode.WORD_CHAR)
-        self.builder.get_object('source_view_box').add(
-            self.source_view
-        )
 
         self.file_manager = FileManager(
-            self.search_entry, self.results_listbox, self.source_buffer
+            self.search_entry,
+            self.results_listbox,
+            self.source_buffer,
+            self.source_view
         )
 
     def on_enable_syntax_highlighting_changed(self, *args):
