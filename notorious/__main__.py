@@ -116,6 +116,7 @@ class GApplication(Gtk.Application):
         self.window.do_startup()
         self.window.present()
         self.window.show_all()
+        self.window.headerbar.search_entry.grab_focus()
         if hasattr(self, 'args'):
             if self.args:
                 pass

@@ -75,14 +75,13 @@ class FileManager:
         self.open_file(file_path)
     
     def on_search_entry_key_press_event(self, entry, event):
-        # TODO fix
         row = None
         if event.keyval == Gdk.KEY_Down:
             self.results_listbox.set_sensitive(False)
-            row = self.results_listbox.get_row_at_index(0)
+            row = self.results_listbox.get_row_at_y(0)
         elif event.keyval == Gdk.KEY_Up:
             self.results_listbox.set_sensitive(False)
-            row = self.results_listbox.get_row_at_index(
+            row = self.results_listbox.get_row_at_y(
                 len(self.results_listbox.get_children()) - 1
             )
         elif event.keyval == Gdk.KEY_Escape:
