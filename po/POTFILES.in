@@ -1,0 +1,7 @@
+data/org.gabmus.notorious.appdata.xml.in
+data/org.gabmus.notorious.desktop.in
+data/ui/headerbar.glade
+data/ui/menu.xml
+data/ui/shortcutsWindow.xml
+notorious/confManager.py
+notorious/settings_window.py

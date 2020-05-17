@@ -1,0 +1,45 @@
+{
+    "app-id": "org.gabmus.notorious",
+    "command": "notorious",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "3.36",
+    "sdk": "org.gnome.Sdk",
+    "finish-args": [
+        "--device=dri",
+        "--share=ipc",
+        "--socket=x11",
+        "--share=network",
+        "--socket=wayland"
+    ],
+    "modules": [
+        {
+            "name": "libhandy",
+            "buildsystem": "meson",
+            "config-opts": [
+                "--buildtype=release"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://source.puri.sm/Librem5/libhandy",
+                    "tag": "v0.0.13"
+                }
+            ]
+        },
+        {
+            "name": "notorious",
+            "buildsystem": "meson",
+            "builddir": true,
+            "config-opts": [
+                "--buildtype=release"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GabMus/notorious",
+                    "tag": "0.1"
+                }
+            ]
+        }
+    ]
+}

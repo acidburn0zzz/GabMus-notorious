@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/gabmus/notorious">
+    <file compressed="true">org.gabmus.notorious.service.desktop</file>
+
+    <file compressed="true">ui/gtk_style.css</file>
+    <file compressed="true">ui/main_ui.glade</file>
+    <file compressed="true">ui/headerbar.glade</file>
+    <file compressed="true">ui/menu.xml</file>
+    <file compressed="true">ui/shortcutsWindow.xml</file>
+    <file compressed="true">aboutdialog.glade</file>
+
+    <file preprocess="xml-stripblanks">icons/org.gabmus.notorious-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/org.gabmus.notorious.svg</file>
+  </gresource>
+</gresources>

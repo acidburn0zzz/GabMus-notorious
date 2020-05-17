@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=@prettyname@
+Comment=Keyboard centric notes
+Exec=@bindir@/@projectname@ %u
+Icon=@appid@
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Office
+Keywords=note;notes;notorious;
