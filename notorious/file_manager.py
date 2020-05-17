@@ -1,3 +1,4 @@
+from gi.repository import Gdk, GLib
 from notorious.confManager import ConfManager
 from notorious.files_listbox_row import FileListboxRow
 from os import listdir
@@ -26,7 +27,14 @@ class FileManager:
 
         self.search_entry.connect('changed', self.on_search_changed)
         # activate called on Enter pressed
-        self.search_entry.connect('activate', self.on_search_entry_activate)
+        self.search_entry.connect(
+            'activate',
+            self.on_search_entry_activate
+        )
+        self.search_entry.connect(
+            'key-press-event',
+            self.on_search_entry_key_press_event
+        )
         self.populate_listbox()
 
     def results_sort_func(self, row1, row2, data, notify_destroy):
@@ -61,6 +69,13 @@ class FileManager:
             self.search_entry.get_text()
         )
         self.open_file(file_path)
+    
+    def on_search_entry_key_press_event(self, entry, event):
+        # TODO fix
+        if event.keyval == Gdk.KEY_Down:
+            first_row = self.results_listbox.get_row_at_index(0)
+            self.results_listbox.select_row(first_row)
+            self.results_listbox.get_selected_row().grab_focus()
 
     def on_results_listbox_row_activated(self, listbox, row):
         if not row:
