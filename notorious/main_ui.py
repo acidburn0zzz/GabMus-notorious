@@ -1,4 +1,4 @@
-from gi.repository import Gtk, GtkSource
+from gi.repository import Gtk, Gdk, GtkSource
 from notorious.file_manager import FileManager
 from notorious.confManager import ConfManager
 
@@ -50,6 +50,14 @@ class NotoriousUI(Gtk.Bin):
         self.source_view.set_highlight_current_line(True)
         self.source_view.set_wrap_mode(Gtk.WrapMode.WORD_CHAR)
 
+        self.source_view.connect(
+            'key-press-event',
+            self.on_source_view_key_press_event
+        )
+        self.builder.get_object('source_view_box').add(
+            self.source_view
+        )
+
         self.file_manager = FileManager(
             self.search_entry,
             self.results_listbox,
@@ -61,3 +69,7 @@ class NotoriousUI(Gtk.Bin):
         self.source_buffer.set_highlight_syntax(
             self.confman.conf['show_markdown_syntax_highlighting']
         )
+
+    def on_source_view_key_press_event(self, widget, event):
+        if event.keyval == Gdk.KEY_Escape:
+            self.search_entry.grab_focus()
