@@ -1,4 +1,4 @@
-from gi.repository import Gtk
+from gi.repository import Gtk, Pango
 
 
 class FileListboxRow(Gtk.ListBoxRow):
@@ -15,4 +15,7 @@ class FileListboxRow(Gtk.ListBoxRow):
         self.name_label.set_margin_bottom(3)
         self.name_label.set_margin_start(3)
         self.name_label.set_margin_end(3)
+        self.name_label.set_ellipsize(
+            Pango.EllipsizeMode.END
+        )
         self.add(self.name_label)
