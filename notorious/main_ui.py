@@ -24,19 +24,17 @@ class NotoriousUI(Gtk.Bin):
         self.source_lang_markdown = self.source_language_manager.get_language(
             'markdown'
         )
-        # TODO: change color scheme depending on dark mode preference
-        self.style_builder_dark = self.source_style_scheme_manager.get_scheme(
-            'builder-dark'
-        )
         self.source_buffer = GtkSource.Buffer()
-        self.source_buffer.set_style_scheme(
-            self.style_builder_dark
-        )
+        self.on_dark_mode_changed()
         self.source_buffer.set_language(self.source_lang_markdown)
         self.on_enable_syntax_highlighting_changed()
         self.confman.connect(
             'markdown_syntax_highlighting_changed',
             self.on_enable_syntax_highlighting_changed
+        )
+        self.confman.connect(
+            'dark_mode_changed',
+            self.on_dark_mode_changed
         )
         self.source_view = GtkSource.View.new_with_buffer(self.source_buffer)
         self.source_view.set_monospace(True)
@@ -73,3 +71,14 @@ class NotoriousUI(Gtk.Bin):
     def on_source_view_key_press_event(self, widget, event):
         if event.keyval == Gdk.KEY_Escape:
             self.search_entry.grab_focus()
+
+    def on_dark_mode_changed(self, *args):
+        Gtk.Settings.get_default().set_property(
+            'gtk-application-prefer-dark-theme',
+            self.confman.conf['dark_mode']
+        )
+        self.source_buffer.set_style_scheme(
+            self.source_style_scheme_manager.get_scheme(
+                'builder-dark' if self.confman.conf['dark_mode'] else 'builder'
+            )
+        )
