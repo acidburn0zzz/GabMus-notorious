@@ -78,8 +78,10 @@ class FileManager:
         # TODO fix
         row = None
         if event.keyval == Gdk.KEY_Down:
+            self.results_listbox.set_sensitive(False)
             row = self.results_listbox.get_row_at_index(0)
         elif event.keyval == Gdk.KEY_Up:
+            self.results_listbox.set_sensitive(False)
             row = self.results_listbox.get_row_at_index(
                 len(self.results_listbox.get_children()) - 1
             )
@@ -89,7 +91,8 @@ class FileManager:
             return
         if row is not None:
             self.results_listbox.select_row(row)
-            self.results_listbox.get_selected_row().grab_focus()
+            self.results_listbox.set_sensitive(True)
+            GLib.idle_add(lambda *args: row.grab_focus())
 
     def on_results_listbox_row_activated(self, listbox, row):
         if not row:
