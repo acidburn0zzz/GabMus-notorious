@@ -18,8 +18,8 @@ class FileListboxRow(Gtk.ListBoxRow):
         self.name_label.set_halign(Gtk.Align.START)
         self.name_label.set_margin_top(3)
         self.name_label.set_margin_bottom(3)
-        self.name_label.set_margin_start(3)
-        self.name_label.set_margin_end(3)
+        self.name_label.set_margin_start(12)
+        self.name_label.set_margin_end(12)
         self.name_label.set_ellipsize(
             Pango.EllipsizeMode.END
         )
@@ -30,7 +30,7 @@ class FileListboxRow(Gtk.ListBoxRow):
         )
 
     def on_key_press_event(self, widget, event):
-        if event.keyval == Gdk.KEY_Delete:
+        if event.keyval in (Gdk.KEY_Delete, Gdk.KEY_BackSpace):
             dialog = Gtk.MessageDialog(
                 self.get_toplevel(),
                 Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,

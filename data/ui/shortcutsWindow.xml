@@ -85,7 +85,7 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="accelerator">Delete</property>
+                <property name="accelerator">Delete BackSpace</property>
                 <property name="title" translatable="yes">Delete selected note</property>
               </object>
             </child>
