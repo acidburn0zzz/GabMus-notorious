@@ -35,6 +35,10 @@ class FileManager:
             'key-press-event',
             self.on_search_entry_key_press_event
         )
+        self.confman.connect(
+            'notes_dir_changed',
+            self.populate_listbox
+        )
         self.populate_listbox()
 
     def results_sort_func(self, row1, row2, data, notify_destroy):
@@ -43,7 +47,7 @@ class FileManager:
     def results_filter_func(self, row, data, notify_destroy):
         return self.search_entry.get_text().lower() in row.name.lower()
 
-    def populate_listbox(self):
+    def populate_listbox(self, *args):
         while True:
             row = self.results_listbox.get_row_at_index(0)
             if row:
