@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: notorious 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-17 15:54+0200\n"
-"PO-Revision-Date: 2020-05-17 15:56+0200\n"
+"POT-Creation-Date: 2020-05-17 18:43+0200\n"
+"PO-Revision-Date: 2020-05-17 18:44+0200\n"
 "Last-Translator: Gabriele Musco <gabmus@disroot.org>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -18,9 +18,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.3\n"
 
-#: ../notorious/confManager.py:46
+#: ../notorious/confManager.py:51
 msgid "Notes"
 msgstr "Note"
+
+#: ../notorious/files_listbox_row.py:39
+#, python-brace-format
+msgid "Delete note `{0}`?"
+msgstr "Eliminare nota `{0}`?"
 
 #: ../notorious/settings_window.py:70
 msgid "Choose a folder"
@@ -45,6 +50,18 @@ msgstr "Cartella note"
 #: ../notorious/settings_window.py:192
 msgid "Choose a notes folder"
 msgstr "Scegli una cartella note"
+
+#: ../notorious/settings_window.py:210
+msgid "View"
+msgstr "Vista"
+
+#: ../notorious/settings_window.py:214
+msgid "View Settings"
+msgstr "Impostazioni Vista"
+
+#: ../notorious/settings_window.py:217
+msgid "Dark mode"
+msgstr "Modalità scura"
 
 #: ../data/ui/menu.xml:6
 msgid "Preferences"

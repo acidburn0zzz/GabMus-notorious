@@ -4,4 +4,5 @@ data/ui/headerbar.glade
 data/ui/menu.xml
 data/ui/shortcutsWindow.xml
 notorious/confManager.py
+notorious/files_listbox_row.py
 notorious/settings_window.py
