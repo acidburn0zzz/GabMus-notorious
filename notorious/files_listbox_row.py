@@ -16,8 +16,8 @@ class FileListboxRow(Gtk.ListBoxRow):
         self.name_label = Gtk.Label(self.name)
         self.name_label.set_hexpand(False)
         self.name_label.set_halign(Gtk.Align.START)
-        self.name_label.set_margin_top(3)
-        self.name_label.set_margin_bottom(3)
+        self.name_label.set_margin_top(6)
+        self.name_label.set_margin_bottom(6)
         self.name_label.set_margin_start(12)
         self.name_label.set_margin_end(12)
         self.name_label.set_ellipsize(
