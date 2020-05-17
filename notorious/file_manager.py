@@ -67,7 +67,7 @@ class FileManager:
             return
         self.open_file(row.file_path)
 
-    def open_file(self, file_path):
+    def save_current_file(self):
         if (
                 self.currently_open_file is not None and
                 isfile(self.currently_open_file)
@@ -80,6 +80,9 @@ class FileManager:
                         True
                     )
                 )
+
+    def open_file(self, file_path):
+        self.save_current_file()
         self.currently_open_file = file_path
         if isfile(file_path):
             with open(file_path, 'r') as fd:
@@ -88,4 +91,5 @@ class FileManager:
             with open(file_path, 'w') as fd:
                 fd.write('')
             self.populate_listbox()
+            self.source_buffer.set_text('')
         self.source_view.grab_focus()

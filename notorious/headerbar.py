@@ -4,13 +4,6 @@ from notorious.confManager import ConfManager
 
 
 class GHeaderbar(Handy.TitleBar):
-    __gsignals__ = {
-        'headerbar_squeeze': (
-            GObject.SignalFlags.RUN_FIRST,
-            None,
-            (bool,)
-        )
-    }
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

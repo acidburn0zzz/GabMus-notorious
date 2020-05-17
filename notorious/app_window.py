@@ -15,7 +15,6 @@ class AppWindow(Gtk.ApplicationWindow):
         self.main_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
 
         self.headerbar = GHeaderbar()
-        self.headerbar.connect('headerbar_squeeze', self.on_headerbar_squeeze)
         self.set_titlebar(self.headerbar)
 
         self.main_ui = NotoriousUI(self.headerbar.search_entry)
@@ -50,9 +49,6 @@ class AppWindow(Gtk.ApplicationWindow):
         for s in shortcuts_l:
             self.add_accelerator(s['combo'], s['cb'])
 
-    def on_headerbar_squeeze(self, caller, squeezed):
-        pass
-
     def add_accelerator(self, shortcut, callback):
         if shortcut:
             key, mod = Gtk.accelerator_parse(shortcut)
@@ -64,6 +60,7 @@ class AppWindow(Gtk.ApplicationWindow):
         self.emit('destroy')
 
     def on_destroy(self, *args):
+        self.main_ui.file_manager.save_current_file()
         self.confman.conf['windowsize'] = {
             'width': self.size_allocation.width,
             'height': self.size_allocation.height
