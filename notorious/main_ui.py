@@ -45,7 +45,7 @@ class NotoriousUI(Gtk.Bin):
         self.source_view.set_tab_width(8)
         self.source_view.set_smart_backspace(True)
         # self.source_view.set_smart_home_end(GtkSource.SmartHomeEndType.ALWAYS)
-        self.source_view.set_highlight_current_line(True)
+        # self.source_view.set_highlight_current_line(True)
         self.source_view.set_wrap_mode(Gtk.WrapMode.WORD_CHAR)
 
         self.source_view.connect(
@@ -79,6 +79,7 @@ class NotoriousUI(Gtk.Bin):
         )
         self.source_buffer.set_style_scheme(
             self.source_style_scheme_manager.get_scheme(
+                # 'oblivion' if self.confman.conf['dark_mode'] else 'tango'
                 'builder-dark' if self.confman.conf['dark_mode'] else 'builder'
             )
         )
