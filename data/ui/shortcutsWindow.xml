@@ -33,6 +33,75 @@
             </child>
           </object>
         </child>
+        <child>
+          <object class="GtkShortcutsGroup">
+            <property name="title" translatable="yes">Search bar</property>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="accelerator">Down</property>
+                <property name="title" translatable="yes">Move to first item in notes list</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="accelerator">Up</property>
+                <property name="title" translatable="yes">Move to last item in notes list</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="accelerator">Escape</property>
+                <property name="title" translatable="yes">Select all</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="accelerator">Return</property>
+                <property name="title" translatable="yes">Open or create note with specified name and move to editor</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkShortcutsGroup">
+            <property name="title" translatable="yes">Notes list</property>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="accelerator">Up Down</property>
+                <property name="title" translatable="yes">Move through the notes</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="accelerator">Escape</property>
+                <property name="title" translatable="yes">Move to the search bar</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="accelerator">Return</property>
+                <property name="title" translatable="yes">Open selected note</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="accelerator">Delete</property>
+                <property name="title" translatable="yes">Delete selected note</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkShortcutsGroup">
+            <property name="title" translatable="yes">Editor</property>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="accelerator">Escape</property>
+                <property name="title" translatable="yes">Move to the search bar</property>
+              </object>
+            </child>
+          </object>
+        </child>
       </object>
     </child>
   </object>
