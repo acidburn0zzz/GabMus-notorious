@@ -60,7 +60,7 @@ class FileManager:
             )
             if isfile(file_path):
                 self.results_listbox.add(
-                    FileListboxRow(f, file_path)
+                    FileListboxRow(f, file_path, self.search_entry)
                 )
         self.results_listbox.show_all()
 
@@ -76,9 +76,19 @@ class FileManager:
     
     def on_search_entry_key_press_event(self, entry, event):
         # TODO fix
+        row = None
         if event.keyval == Gdk.KEY_Down:
-            first_row = self.results_listbox.get_row_at_index(0)
-            self.results_listbox.select_row(first_row)
+            row = self.results_listbox.get_row_at_index(0)
+        elif event.keyval == Gdk.KEY_Up:
+            row = self.results_listbox.get_row_at_index(
+                len(self.results_listbox.get_children()) - 1
+            )
+        elif event.keyval == Gdk.KEY_Escape:
+            # weird way to select all
+            self.search_entry.grab_focus()
+            return
+        if row is not None:
+            self.results_listbox.select_row(row)
             self.results_listbox.get_selected_row().grab_focus()
 
     def on_results_listbox_row_activated(self, listbox, row):

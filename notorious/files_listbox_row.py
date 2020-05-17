@@ -5,12 +5,13 @@ from notorious.confManager import ConfManager
 
 
 class FileListboxRow(Gtk.ListBoxRow):
-    def __init__(self, name, file_path, *args, **kwargs):
+    def __init__(self, name, file_path, search_entry, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.confman = ConfManager()
 
         self.name = name
         self.file_path = file_path
+        self.search_entry = search_entry
 
         self.name_label = Gtk.Label(self.name)
         self.name_label.set_hexpand(False)
@@ -45,4 +46,5 @@ class FileListboxRow(Gtk.ListBoxRow):
                 remove(self.file_path)
                 self.confman.emit('notes_dir_changed', '')
             dialog.close()
-
+        elif event.keyval == Gdk.KEY_Escape:
+            self.search_entry.grab_focus()
