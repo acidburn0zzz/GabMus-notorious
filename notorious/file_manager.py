@@ -117,14 +117,16 @@ class FileManager:
                 self.currently_open_file is not None and
                 isfile(self.currently_open_file)
         ):
+            text_to_save = self.source_buffer.get_text(
+                self.source_buffer.get_start_iter(),
+                self.source_buffer.get_end_iter(),
+                True
+            )
+            with open(self.currently_open_file, 'r') as fd:
+                if fd.read() == text_to_save:
+                    return
             with open(self.currently_open_file, 'w') as fd:
-                fd.write(
-                    self.source_buffer.get_text(
-                        self.source_buffer.get_start_iter(),
-                        self.source_buffer.get_end_iter(),
-                        True
-                    )
-                )
+                fd.write(text_to_save)
 
     def open_file(self, file_path):
         self.save_current_file()
