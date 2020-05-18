@@ -27,6 +27,22 @@
             ]
         },
         {
+            "name": "gnome-builder-gtksourceview4-colorschemes",
+            "buildsystem": "simple",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/gnome-builder.git",
+                    "tag": "3.36.0"
+                }
+            ],
+            "build-commands": [
+            	"mkdir -p /app/share/gtksourceview-4/styles/",
+            	"install data/style-schemes/builder.style-scheme.xml /app/share/gtksourceview-4/styles/",
+            	"install data/style-schemes/builder-dark.style-scheme.xml /app/share/gtksourceview-4/styles/"
+            ]
+        },
+        {
             "name": "notorious",
             "buildsystem": "meson",
             "builddir": true,
