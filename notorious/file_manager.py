@@ -14,9 +14,11 @@ class FileManager:
         self.source_buffer = source_buffer
         self.source_view = source_view
         self.confman = ConfManager()
-        self.results_listbox.set_sort_func(
-            self.results_sort_func, None, False
+        self.confman.connect(
+            'sorting_method_changed',
+            self.on_sorting_method_changed
         )
+        self.on_sorting_method_changed()
         self.results_listbox.set_filter_func(
             self.results_filter_func, None, False
         )
@@ -41,8 +43,20 @@ class FileManager:
         )
         self.populate_listbox()
 
-    def results_sort_func(self, row1, row2, data, notify_destroy):
+    def on_sorting_method_changed(self, *args):
+        self.results_listbox.set_sort_func(
+            self.results_sort_func_by_name
+            if self.confman.conf['sorting_method'] == 'name'
+            else self.results_sort_func_by_last_modified,
+            None, False
+        )
+
+    def results_sort_func_by_name(self, row1, row2, data, notify_destroy):
         return row1.name > row2.name
+
+    def results_sort_func_by_last_modified(self, row1, row2, data,
+                                           notify_destroy):
+        return row1.last_modified < row2.last_modified
 
     def results_filter_func(self, row, data, notify_destroy):
         return self.search_entry.get_text().lower() in row.name.lower()

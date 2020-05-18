@@ -131,6 +131,49 @@ class PreferencesSpinButtonRow(Handy.ActionRow):
         self.confman.save_conf()
 
 
+class PreferencesComboBoxRow(Handy.ActionRow):
+    """
+    A preferences row with a title and a combo box
+    title: the title shown
+    values: a list of acceptable values
+    values_names: a list of user facing names for the values provided above
+    conf_key: the key of the configuration dictionary/json in ConfManager
+    signal: an optional signal to let ConfManager emit when the value changes
+    """
+
+    def __init__(self, title, values, values_names, conf_key, signal=None,
+                 subtitle=None, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.title = title
+        if subtitle:
+            self.subtitle = subtitle
+            self.set_subtitle(self.subtitle)
+        self.confman = ConfManager()
+        self.set_title(self.title)
+        self.signal = signal
+        self.conf_key = conf_key
+        self.list_store = Gtk.ListStore(str, str)
+        for name, value in zip(values_names, values):
+            self.list_store.append([value, name])
+        self.combo_box = Gtk.ComboBox.new_with_model(self.list_store)
+        self.cell_renderer = Gtk.CellRendererText()
+        self.combo_box.pack_start(self.cell_renderer, True)
+        self.combo_box.add_attribute(self.cell_renderer, "text", 1)
+        self.combo_box.set_id_column(0)
+        self.combo_box.set_active_id(self.confman.conf[self.conf_key])
+        self.add_action(self.combo_box)
+        self.combo_box.connect('changed', self.on_value_changed)
+
+    def on_value_changed(self, *args):
+        store_iter = self.combo_box.get_active_iter()
+        if store_iter is not None:
+            self.confman.conf[self.conf_key] = \
+                self.combo_box.get_model()[store_iter][0]
+            if self.signal:
+                self.confman.emit(self.signal, '')
+            self.confman.save_conf()
+
+
 class PreferencesToggleRow(Handy.ActionRow):
     """
     A preferences row with a title and a toggle
@@ -190,6 +233,15 @@ class GeneralPreferencesPage(Handy.PreferencesPage):
                 'notes_dir',
                 signal='notes_dir_changed',
                 file_chooser_title=_('Choose a notes folder')
+            )
+        )
+        self.general_preferences_group.add(
+            PreferencesComboBoxRow(
+                _('Sort notes by'),
+                ['name', 'last_modified'],
+                [_('Name'), _('Last modified')],
+                'sorting_method',
+                signal='sorting_method_changed',
             )
         )
         # self.general_preferences_group.add(

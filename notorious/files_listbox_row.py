@@ -1,6 +1,7 @@
 from gettext import gettext as _
 from gi.repository import Gtk, Gdk, Pango
 from os import remove
+from os.path import getmtime as get_last_modified
 from notorious.confManager import ConfManager
 
 
@@ -12,6 +13,8 @@ class FileListboxRow(Gtk.ListBoxRow):
         self.name = name
         self.file_path = file_path
         self.search_entry = search_entry
+        # this is a unix timestamp
+        self.last_modified = get_last_modified(self.file_path)
 
         self.name_label = Gtk.Label(self.name)
         self.name_label.set_hexpand(False)

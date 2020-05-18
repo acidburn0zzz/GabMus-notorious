@@ -38,6 +38,11 @@ class ConfManagerSignaler(GObject.Object):
             None,
             (str,)
         ),
+        'sorting_method_changed': (
+            GObject.SignalFlags.RUN_FIRST,
+            None,
+            (str,)
+        ),
     }
 
 
@@ -51,7 +56,8 @@ class ConfManager(metaclass=Singleton):
         'notes_dir': '{0}/{1}'.format(documents_dir, _('Notes')),
         # 'max_search_results': 5,
         'show_markdown_syntax_highlighting': False,
-        'dark_mode': False
+        'dark_mode': False,
+        'sorting_method': 'name'
     }
 
     def __init__(self):
