@@ -82,12 +82,15 @@ class FileManager:
         self.results_listbox.invalidate_filter()
 
     def on_search_entry_activate(self, *args):
+        entry_text = self.search_entry.get_text()
+        if not entry_text:
+            return
         file_path = '{0}/{1}'.format(
             self.confman.conf['notes_dir'],
-            self.search_entry.get_text()
+            entry_text
         )
         self.open_file(file_path)
-    
+
     def on_search_entry_key_press_event(self, entry, event):
         row = None
         if event.keyval == Gdk.KEY_Down:
