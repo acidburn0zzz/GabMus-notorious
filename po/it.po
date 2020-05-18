@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: notorious 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-17 18:43+0200\n"
-"PO-Revision-Date: 2020-05-17 18:44+0200\n"
+"POT-Creation-Date: 2020-05-18 09:17+0200\n"
+"PO-Revision-Date: 2020-05-18 09:20+0200\n"
 "Last-Translator: Gabriele Musco <gabmus@disroot.org>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Notes"
 msgstr "Note"
 
-#: ../notorious/files_listbox_row.py:39
+#: ../notorious/files_listbox_row.py:40
 #, python-brace-format
 msgid "Delete note `{0}`?"
 msgstr "Eliminare nota `{0}`?"
@@ -90,6 +90,50 @@ msgstr "Apri Preferenze"
 #: ../data/ui/shortcutsWindow.xml:31
 msgid "Quit"
 msgstr "Esci"
+
+#: ../data/ui/shortcutsWindow.xml:38
+msgid "Search bar"
+msgstr "Barra di ricerca"
+
+#: ../data/ui/shortcutsWindow.xml:42
+msgid "Move to first item in notes list"
+msgstr "Spostati al primo elemento nella lista delle note"
+
+#: ../data/ui/shortcutsWindow.xml:48
+msgid "Move to last item in notes list"
+msgstr "Spostati all'ultimo elemento nella lista delle note"
+
+#: ../data/ui/shortcutsWindow.xml:54
+msgid "Select all"
+msgstr "Seleziona tutto"
+
+#: ../data/ui/shortcutsWindow.xml:60
+msgid "Open or create note with specified name and move to editor"
+msgstr "Apri o crea nota con il nome specificato e spostati all'editor"
+
+#: ../data/ui/shortcutsWindow.xml:67
+msgid "Notes list"
+msgstr "Lista note"
+
+#: ../data/ui/shortcutsWindow.xml:71
+msgid "Move through the notes"
+msgstr "Spostati tra le note"
+
+#: ../data/ui/shortcutsWindow.xml:77 ../data/ui/shortcutsWindow.xml:100
+msgid "Move to the search bar"
+msgstr "Spostati alla barra di ricerca"
+
+#: ../data/ui/shortcutsWindow.xml:83
+msgid "Open selected note"
+msgstr "Apri nota selezionata"
+
+#: ../data/ui/shortcutsWindow.xml:89
+msgid "Delete selected note"
+msgstr "Elimina nota selezionata"
+
+#: ../data/ui/shortcutsWindow.xml:96
+msgid "Editor"
+msgstr "Editor"
 
 #: ../data/ui/headerbar.glade:32
 msgid "Menu"
