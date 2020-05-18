@@ -59,7 +59,7 @@ class FileManager:
         return row1.last_modified < row2.last_modified
 
     def results_filter_func(self, row, data, notify_destroy):
-        return self.search_entry.get_text().lower() in row.name.lower()
+        return self.search_entry.get_text().lower().strip() in row.name.lower()
 
     def populate_listbox(self, *args):
         while True:
@@ -82,7 +82,7 @@ class FileManager:
         self.results_listbox.invalidate_filter()
 
     def on_search_entry_activate(self, *args):
-        entry_text = self.search_entry.get_text()
+        entry_text = self.search_entry.get_text().strip()
         if not entry_text:
             return
         file_path = '{0}/{1}'.format(
