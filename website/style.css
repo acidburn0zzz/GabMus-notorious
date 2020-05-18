@@ -100,6 +100,7 @@ video {
 h1, h2, h3, p {
     max-width: 1000px !important;
     margin: auto;
+    padding-top: 15px;
     text-align: center;
 }
 
@@ -111,6 +112,11 @@ h1 {
 h2 {
     font-size: 2.5rem;
     font-weight: normal;
+    padding-top: 20px;
+}
+
+h3 {
+    font-size: 1.3rem;
 }
 
 #markdown img, #markdown p {
@@ -121,7 +127,7 @@ h2 {
 
 #markdown img, #markdown video {
     margin-top: 24px;
-    margin-bottom: 60px;
+    margin-bottom: 24px;
 }
 
 #markdown p {
