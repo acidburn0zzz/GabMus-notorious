@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128" height="128" enable-background="new" version="1.0" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <title>Adwaita Icon Template</title>
+ <defs>
+  <clipPath>
+   <rect x="160" y="-188" width="16" height="56" rx="8" ry="8" enable-background="new" fill="none" stroke="#000" style="paint-order:normal"/>
+  </clipPath>
+  <linearGradient id="a" x1="28" x2="116" y1="-276" y2="-276" gradientTransform="translate(-136 170)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#1a5fb4" offset="0"/>
+   <stop stop-color="#3584e4" offset=".045455"/>
+   <stop stop-color="#1a5fb4" offset=".090909"/>
+   <stop stop-color="#1a5fb4" offset=".90909"/>
+   <stop stop-color="#3584e4" offset=".95455"/>
+   <stop stop-color="#1a5fb4" offset="1"/>
+  </linearGradient>
+  <clipPath>
+   <rect width="192" height="152"/>
+  </clipPath>
+ </defs>
+ <rect transform="scale(-1)" x="-108" y="-122" width="88" height="40" rx="8" ry="8" fill="url(#a)" style="paint-order:normal"/>
+ <g transform="translate(0,-172)" display="none">
+  <g display="inline" enable-background="new">
+   <rect x="9.2651e-8" y="172" width="128" height="128" display="inline" enable-background="accumulate" fill="#f0f0f0"/>
+   <g fill="none">
+    <g stroke="#000" stroke-dasharray="0.99, 0.99" stroke-width=".99">
+     <circle cx="64" cy="236" r="59.504" display="inline" enable-background="new" opacity=".1" style="paint-order:normal"/>
+     <rect x="20.495" y="180.49" width="87.01" height="111.01" rx="8.701" ry="7.9293" display="inline" enable-background="new" opacity=".1" style="paint-order:normal"/>
+     <rect x="12.495" y="184.5" width="103.01" height="103.01" rx="7.9238" ry="7.9238" display="inline" enable-background="new" opacity=".1" style="paint-order:normal"/>
+     <rect x="8.495" y="200.49" width="111.01" height="87.01" rx="7.9293" ry="8.701" display="inline" enable-background="new" opacity=".1" style="paint-order:normal"/>
+    </g>
+    <path d="m2.6203e-5 289h128" display="inline" enable-background="new" stroke="#62a0ea" stroke-width="2"/>
+   </g>
+  </g>
+ </g>
+ <rect transform="scale(-1)" x="-108" y="-116" width="88" height="108" rx="8" ry="8" fill="#241f31" style="paint-order:normal"/>
+ <path d="m23 34.145v30.82h82v-30.82z" fill="#3d3846" style="paint-order:fill markers stroke"/>
+ <path d="m27.047 10.73c-2.8053 0-5.0162 2.2109-5.0162 5.0162v18.399h83.937v-18.399c0-2.8053-2.2109-5.0162-5.0162-5.0162z" fill="#3584e4" style="paint-order:fill markers stroke"/>
+ <path transform="scale(-1)" d="m-100.1-116c-4.3506 0-7.9004 3.5497-7.9004 7.9004v92.199c0 4.3507 3.5497 7.9004 7.9004 7.9004h72.199c4.3507 0 7.9004-3.5497 7.9004-7.9004v-92.199c0-4.3506-3.5497-7.9004-7.9004-7.9004h-72.199zm0 3h72.199c2.7405 0 4.9004 2.1598 4.9004 4.9004v92.199c0 2.7405-2.1598 4.9004-4.9004 4.9004h-72.199c-2.7406 0-4.9004-2.1598-4.9004-4.9004v-92.199c0-2.7406 2.1598-4.9004 4.9004-4.9004z" color="#000000" color-rendering="auto" dominant-baseline="auto" enable-background="accumulate" fill="#3584e4" image-rendering="auto" shape-rendering="auto" solid-color="#000000" stop-color="#000000" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-variation-settings:normal;inline-size:0;isolation:auto;mix-blend-mode:normal;paint-order:normal;shape-margin:0;shape-padding:0;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal"/>
+ <path d="m32.764 14.875a1.7384 1.7384 0 0 0-1.2111 2.9814l4.5663 4.5663-4.5663 4.5663a1.7384 1.7384 0 1 0 2.457 2.457l5.7948-5.7948a1.7384 1.7384 0 0 0 0-2.457l-5.7948-5.7948a1.7384 1.7384 0 0 0-1.2459-0.52443z" color="#bebebe" fill="#f6f5f4" font-family="sans-serif" font-weight="400" overflow="visible" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;isolation:auto;mix-blend-mode:normal;shape-padding:0;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none"/>
+ <path d="m27.717 72.145v4h32.566v-4zm0 8v4h66.566v-4zm0 8v4h52.566v-4zm0 8v4h60.566v-4z" fill="#fff" opacity=".3"/>
+</svg>
